@@ -30,15 +30,13 @@ RUN wget https://julialang-s3.julialang.org/bin/linux/x64/1.10/julia-${JULIA_VER
 # 作業ディレクトリの設定
 WORKDIR /workspace
 
-# pyproject.tomlとuv.lockをコピー（存在する場合）
-COPY pyproject.toml* uv.lock* ./
-
-# Pythonパッケージのインストール（uvを使用）
-RUN if [ -f pyproject.toml ]; then uv pip install -e .; fi
+# pyproject.tomlをコピーしてPythonパッケージをインストール
+COPY pyproject.toml ./
+RUN uv pip install -e .
 
 # Juliaのセットアップスクリプトをコピーして実行
-COPY setup_julia.jl* ./
-RUN if [ -f setup_julia.jl ]; then julia setup_julia.jl; fi
+COPY setup_julia.jl ./
+RUN julia setup_julia.jl
 
 # コンテナ起動時のデフォルトコマンド
 CMD ["/bin/bash"]

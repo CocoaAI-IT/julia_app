@@ -26,9 +26,5 @@
     }
   },
   "forwardPorts": [8888],
-  "postCreateCommand": "bash .devcontainer/postCreate.sh",
-  "remoteUser": "root",
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
-  ]
+  "remoteUser": "root"
 }

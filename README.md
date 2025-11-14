@@ -58,8 +58,7 @@ jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
 ```
 julia_app/
 ├── .devcontainer/
-│   ├── devcontainer.json      # Dev Container設定
-│   └── postCreate.sh           # コンテナ作成後の初期化スクリプト
+│   └── devcontainer.json      # Dev Container設定
 ├── notebooks/
 │   └── mnist_classification.ipynb  # MNIST分類のサンプルノートブック
 ├── Dockerfile                  # コンテナイメージの定義
