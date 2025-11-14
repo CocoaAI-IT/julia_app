@@ -62,6 +62,8 @@ julia_app/
 ├── notebooks/
 │   └── mnist_classification.ipynb  # MNIST分類のサンプルノートブック
 ├── Dockerfile                  # コンテナイメージの定義
+├── .dockerignore              # Dockerビルドの除外設定
+├── .gitignore                 # Git除外設定
 ├── pyproject.toml             # Python依存関係（uv用）
 ├── setup_julia.jl             # Julia環境のセットアップスクリプト
 └── README.md                  # このファイル
@@ -134,8 +136,24 @@ jupyter lab --ip=0.0.0.0 --port=8888 --allow-root --no-browser
 
 ### コンテナのビルドに失敗する
 
+**基本的な確認事項：**
 - Docker Desktopが起動していることを確認
 - WSL2のメモリ割り当てを増やす（.wslconfigで設定）
+- 正しいディレクトリ（julia_appのルート）でVS Codeを開いていることを確認
+
+**詳細なエラーログの確認方法：**
+1. VS Codeでコマンドパレット（`Ctrl+Shift+P`）を開く
+2. "Dev Containers: Show Log" を選択
+3. ビルドプロセスの詳細なログを確認
+
+**手動でのDockerビルドテスト：**
+WSL2のターミナルで以下を実行：
+```bash
+cd /path/to/julia_app
+docker build -t julia-app-test .
+```
+
+これにより、どのステップでビルドが失敗しているか特定できます。
 
 ### Juliaパッケージのインストールに時間がかかる
 

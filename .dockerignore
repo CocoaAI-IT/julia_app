@@ -1,5 +1,9 @@
+# Git
+.git
+.gitignore
+
 # Python
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 *.so
@@ -19,7 +23,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-MANIFEST
 .pytest_cache/
 .coverage
 htmlcov/
@@ -31,7 +34,6 @@ env/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-*.ipynb_checkpoints/
 
 # Julia
 *.jl.cov
@@ -40,12 +42,9 @@ env/
 deps/deps.jl
 Manifest.toml
 
-# VS Code
-.vscode/
-*.code-workspace
-
 # IDE
-.idea/
+.vscode
+.idea
 *.swp
 *.swo
 *~
@@ -55,5 +54,12 @@ Manifest.toml
 Thumbs.db
 *.log
 
-# uv
-uv.lock
+# Dev Container
+.devcontainer
+
+# Documentation
+README.md
+*.md
+
+# Notebooks (built separately)
+notebooks/
